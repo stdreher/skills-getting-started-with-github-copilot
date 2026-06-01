@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const activityCard = document.createElement("div");
       activityCard.className = "activity-card";
 
-      const spotsLeft = details.max_participants - details.participants.length;
+      const spotsLeft = details.spotsLeft || (details.maxParticipants - details.participants.length);
 
       activityCard.innerHTML = `
         <h4>${name}</h4>
@@ -98,8 +98,10 @@ document.addEventListener("DOMContentLoaded", () => {
         messageDiv.textContent = result.message;
         messageDiv.className = "success";
         signupForm.reset();
+        // Refresh activities to update participant counts
+        fetchActivities();
       } else {
-        messageDiv.textContent = result.detail || "An error occurred";
+        messageDiv.textContent = result.message || "An error occurred";
         messageDiv.className = "error";
       }
 
