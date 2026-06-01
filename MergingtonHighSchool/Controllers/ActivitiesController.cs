@@ -52,13 +52,21 @@ public class ActivitiesController : ControllerBase
             });
         }
 
+        if (!_activityService.GetAllActivities().ContainsKey(name))
+        {
+            return NotFound(new SignupResponse
+            {
+                Success = false,
+                Message = "Activity not found."
+            });
+        }
+
         var result = _activityService.SignupForActivity(name, email);
 
-        if (!result.Success && result.Message.Contains("not found"))
+        if (!result.Success)
         {
-            return NotFound(result);
+            return BadRequest(result);
         }
 
         return Ok(result);
-    }
 }
