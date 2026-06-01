@@ -3,7 +3,7 @@ using MergingtonHighSchool.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container
-builder.Services.AddScoped<IActivityService, ActivityService>();
+builder.Services.AddSingleton<IActivityService, ActivityService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
