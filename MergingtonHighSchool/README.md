@@ -191,4 +191,4 @@ Dieses Projekt wird unter der gleichen Lizenz wie das Original bereitgestellt.
 
 **Erstellt:** Juni 2026  
 **Framework:** ASP.NET Core 8.0
-**Sprache:** C# 13
+**Sprache:** C# 12
